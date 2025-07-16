@@ -1,0 +1,34 @@
+<template>
+  <div>
+    <Hero />
+    <About />
+    <Services />
+    <Benefits />
+    <Process />
+    <Testimonials />
+    <FAQ />
+    <Contact />
+    <FloatingLineButton />
+  </div>
+</template>
+
+<script setup>
+import { useScrollAnimation } from "~/composables/useScrollAnimation";
+
+useHead({
+  title: "專業推拿服務 | 舒緩疲勞重拾活力",
+  meta: [
+    {
+      name: "description",
+      content:
+        "提供專業推拿按摩服務，肩頸推拿、全身推拿、足底按摩。改善血液循環、舒緩疲勞。LINE預約更便利。",
+    },
+  ],
+});
+
+const { initScrollAnimations } = useScrollAnimation();
+
+onMounted(() => {
+  initScrollAnimations();
+});
+</script>
