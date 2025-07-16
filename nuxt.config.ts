@@ -121,7 +121,7 @@ export default defineNuxtConfig({
             paymentAccepted: ["Cash", "Credit Card", "Bank Transfer"],
             currenciesAccepted: "TWD",
             image: ["https://your-domain.com/images/team-photo.jpg"],
-            //logo: "https://yourentuina.vercel.app/images/logo.png",
+            logo: "https://yourentuina.vercel.app/images/logo.png",
             sameAs: [
               "https://www.facebook.com/p/%E5%8F%8B%E4%BB%81%E6%8E%A8%E6%8B%BF%E6%95%B4%E5%BE%A9%E4%B8%AD%E5%BF%83-100064760584268/",
               "https://www.instagram.com/p0982818113/",
