@@ -9,19 +9,19 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "zh-TW",
       },
-      title: "專業推拿服務 | 舒緩疲勞重拾活力",
+      title: "友仁推拿館 | 專業推拿按摩服務",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
           name: "description",
           content:
-            "提供專業推拿按摩服務，肩頸推拿、全身推拿、推拿整復、扭傷整復。改善血液循環、舒緩疲勞。LINE預約更便利，營業時間週一至週五09:30-22:30，週六14:30-22:30，週日15:00-22:00。位於台中市太平區。",
+            "友仁推拿館提供專業推拿按摩服務，位於台北市中山區。肩頸推拿、全身推拿、刮痧、拔罐。經驗豐富師傅團隊，LINE預約更便利。，營業時間週一至週五09:30-22:30，週六14:30-22:30，週日15:00-22:00。位於台中市太平區。",
         },
         {
           name: "keywords",
           content:
-            "推拿,按摩,肩頸推拿,全身推拿,台中推拿,太平區推拿,專業按摩,刮痧,拔罐,整骨,整復",
+            "友仁推拿,友仁推拿館,推拿,按摩,肩頸推拿,全身推拿,台中推拿,太平區推拿,專業按摩,刮痧,拔罐,整骨,整復",
         },
         { name: "author", content: "友仁推拿整復" },
         { name: "robots", content: "index, follow" },
@@ -37,7 +37,7 @@ export default defineNuxtConfig({
         { property: "og:image", content: "/images/og-massage.jpg" },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
-        { property: "og:url", content: "https://your-domain.com" },
+        { property: "og:url", content: "https://yourentuina.vercel.app/" },
         { property: "og:type", content: "website" },
         { property: "og:locale", content: "zh_TW" },
         { property: "og:site_name", content: "友仁推拿整復" },
@@ -57,10 +57,16 @@ export default defineNuxtConfig({
         { name: "geo.placename", content: "台中市太平區" },
         { name: "geo.position", content: "25.0478;121.5319" },
         { name: "ICBM", content: "25.0478, 121.5319" },
+
+        {
+          name: "google-site-verification",
+          content:
+            "google-site-verification=e3tHuRTu_oxt9bLx08mCSCTh49KsCx6WoEnFIsH6yYk",
+        },
       ],
 
       link: [
-        { rel: "canonical", href: "https://your-domain.com" },
+        { rel: "canonical", href: "https://yourentuina.vercel.app/" },
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         {
           rel: "apple-touch-icon",
@@ -86,11 +92,11 @@ export default defineNuxtConfig({
           innerHTML: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "@id": "https://your-domain.com/#localbusiness",
+            "@id": "https://yourentuina.vercel.app/#localbusiness",
             name: "友仁推拿整復",
             description:
               "專業推拿服務，提供肩頸推拿、全身推拿、推拿整復、整骨、刮痧、拔罐、放鬆等服務",
-            url: "https://your-domain.com",
+            url: "https://yourentuina.vercel.app/",
             telephone: "+886-4-2393-6663",
             email: "info@your-domain.com",
             address: {
@@ -114,15 +120,11 @@ export default defineNuxtConfig({
             priceRange: "NT$150-NT$1000",
             paymentAccepted: ["Cash", "Credit Card", "Bank Transfer"],
             currenciesAccepted: "TWD",
-            image: [
-              "https://your-domain.com/images/store-front.jpg",
-              "https://your-domain.com/images/massage-room.jpg",
-              "https://your-domain.com/images/team-photo.jpg",
-            ],
-            logo: "https://your-domain.com/images/logo.png",
+            image: ["https://your-domain.com/images/team-photo.jpg"],
+            //logo: "https://yourentuina.vercel.app/images/logo.png",
             sameAs: [
-              "https://www.facebook.com/your-page",
-              "https://www.instagram.com/your-account",
+              "https://www.facebook.com/p/%E5%8F%8B%E4%BB%81%E6%8E%A8%E6%8B%BF%E6%95%B4%E5%BE%A9%E4%B8%AD%E5%BF%83-100064760584268/",
+              "https://www.instagram.com/p0982818113/",
               "https://line.me/R/ti/p/@your-line-id",
             ],
             hasOfferCatalog: {
