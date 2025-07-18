@@ -187,7 +187,7 @@ const allServices = [
     name: "推拿 10分鐘",
     category: "massage",
     description:
-      "運用中醫推拿手法，疏通經絡、活血化瘀，有效緩解肌肉疲勞和關節疼痛",
+      "運用民俗調理推拿手法，疏通經絡、活血化瘀，有效緩解肌肉疲勞和關節疼痛",
     price: "NT$ 180",
     duration: "10分鐘",
     symptoms: ["肌肉疲勞", "關節疼痛", "肩頸僵硬", "腰背酸痛"],
@@ -199,7 +199,7 @@ const allServices = [
     name: "推拿 20分鐘",
     category: "massage",
     description:
-      "運用中醫推拿手法，疏通經絡、活血化瘀，有效緩解肌肉疲勞和關節疼痛",
+      "運用民俗調理推拿手法，疏通經絡、活血化瘀，有效緩解肌肉疲勞和關節疼痛",
     price: "NT$ 280",
     duration: "20分鐘",
     symptoms: ["肌肉疲勞", "關節疼痛", "肩頸僵硬", "腰背酸痛"],
@@ -211,7 +211,7 @@ const allServices = [
     name: "推拿 30分鐘",
     category: "massage",
     description:
-      "運用中醫推拿手法，疏通經絡、活血化瘀，有效緩解肌肉疲勞和關節疼痛",
+      "運用民俗調理推拿手法，疏通經絡、活血化瘀，有效緩解肌肉疲勞和關節疼痛",
     price: "NT$ 380",
     duration: "30分鐘",
     symptoms: ["肌肉疲勞", "關節疼痛", "肩頸僵硬", "腰背酸痛"],
@@ -223,7 +223,7 @@ const allServices = [
     name: "推拿 40分鐘",
     category: "massage",
     description:
-      "運用中醫推拿手法，疏通經絡、活血化瘀，有效緩解肌肉疲勞和關節疼痛",
+      "運用民俗調理推拿手法，疏通經絡、活血化瘀，有效緩解肌肉疲勞和關節疼痛",
     price: "NT$ 500",
     duration: "40分鐘",
     symptoms: ["肌肉疲勞", "關節疼痛", "肩頸僵硬", "腰背酸痛"],
@@ -235,7 +235,7 @@ const allServices = [
     name: "推拿 60分鐘",
     category: "massage",
     description:
-      "運用中醫推拿手法，疏通經絡、活血化瘀，有效緩解肌肉疲勞和關節疼痛",
+      "運用民俗調理推拿手法，疏通經絡、活血化瘀，有效緩解肌肉疲勞和關節疼痛",
     price: "NT$ 800",
     duration: "60分鐘",
     symptoms: ["肌肉疲勞", "關節疼痛", "肩頸僵硬", "腰背酸痛"],
@@ -249,7 +249,7 @@ const allServices = [
     name: "刮痧",
     category: "traditional",
     description:
-      "傳統中醫刮痧療法，透過特定手法刮拭皮膚，促進氣血循環，排除體內毒素",
+      "傳統民俗調理刮痧療法，透過特定手法刮拭皮膚，促進氣血循環，排除體內毒素",
     price: "NT$ 180",
     duration: "10分鐘",
     symptoms: ["感冒初期", "頭痛", "肌肉緊張", "循環不良"],

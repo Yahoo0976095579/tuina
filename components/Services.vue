@@ -9,7 +9,7 @@
       <p
         class="text-center text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto text-sm md:text-base"
       >
-        我們提供多種中醫傳統療法，針對不同需求提供專業服務
+        我們提供多種民俗調理傳統療法，針對不同需求提供專業服務
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
@@ -96,7 +96,7 @@ const services = [
     id: 1,
     name: "推拿",
     description:
-      "運用中醫推拿手法，疏通經絡、活血化瘀，有效緩解肌肉疲勞和關節疼痛",
+      "運用民俗調理推拿手法，疏通經絡、活血化瘀，有效緩解肌肉疲勞和關節疼痛",
     price: "NT$ 180",
     duration: "10分鐘",
     icon: "M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z",
@@ -105,7 +105,7 @@ const services = [
     id: 2,
     name: "刮痧",
     description:
-      "傳統中醫刮痧療法，透過特定手法刮拭皮膚，促進氣血循環，排除體內毒素",
+      "傳統民俗調理刮痧療法，透過特定手法刮拭皮膚，促進氣血循環，排除體內毒素",
     price: "NT$ 180",
     duration: "10分鐘",
   },
