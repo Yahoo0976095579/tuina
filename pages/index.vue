@@ -8,7 +8,7 @@
     <About />
     <FAQ />
     <Contact />
-    <FloatingLineButton />
+    <ClientOnly> <FloatingLineButton /> </ClientOnly>
   </div>
 </template>
 
