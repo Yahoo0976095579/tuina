@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import { useScrollAnimation } from "~/composables/useScrollAnimation";
 
 // State for the image zoom modal
 const zoomedImageSrc = ref(null);
@@ -11,6 +12,11 @@ const openZoom = (src) => {
 const closeZoom = () => {
   zoomedImageSrc.value = null;
 };
+
+onMounted(() => {
+  const { initServicesAnimations } = useScrollAnimation();
+  initServicesAnimations();
+});
 </script>
 
 <template>

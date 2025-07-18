@@ -56,9 +56,16 @@
 </template>
 
 <script setup>
+import { useScrollAnimation } from "~/composables/useScrollAnimation";
+
 const scrollToContact = () => {
   document.getElementById("contact").scrollIntoView({
     behavior: "smooth",
   });
 };
+
+onMounted(() => {
+  const { initHeroAnimations } = useScrollAnimation();
+  initHeroAnimations();
+});
 </script>

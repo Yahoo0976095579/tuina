@@ -2,11 +2,31 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const useScrollAnimation = () => {
-  const initScrollAnimations = () => {
-    if (process.client) {
-      gsap.registerPlugin(ScrollTrigger);
+  if (process.client) {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
-      // 服務卡片進入動畫
+  const initHeroAnimations = () => {
+    if (process.client) {
+      gsap.fromTo(
+        ".hero-content",
+        {
+          opacity: 0,
+          y: 50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power2.out",
+          delay: 0.5,
+        }
+      );
+    }
+  };
+
+  const initServicesAnimations = () => {
+    if (process.client) {
       gsap.fromTo(
         ".service-card",
         {
@@ -28,24 +48,11 @@ export const useScrollAnimation = () => {
           },
         }
       );
+    }
+  };
 
-      // Hero content 進入動畫
-      gsap.fromTo(
-        ".hero-content",
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power2.out",
-          delay: 0.5,
-        }
-      );
-
-      // About content 進入動畫
+  const initAboutAnimations = () => {
+    if (process.client) {
       gsap.fromTo(
         ".about-content",
         {
@@ -65,7 +72,6 @@ export const useScrollAnimation = () => {
         }
       );
 
-      // About image 進入動畫
       gsap.fromTo(
         ".about-image",
         {
@@ -84,8 +90,11 @@ export const useScrollAnimation = () => {
           },
         }
       );
+    }
+  };
 
-      // 浮動圓形動畫
+  const initFloatingCircleAnimation = () => {
+    if (process.client) {
       gsap.to(".floating-circle", {
         y: -20,
         duration: 3,
@@ -97,5 +106,10 @@ export const useScrollAnimation = () => {
     }
   };
 
-  return { initScrollAnimations };
+  return {
+    initHeroAnimations,
+    initServicesAnimations,
+    initAboutAnimations,
+    initFloatingCircleAnimation,
+  };
 };

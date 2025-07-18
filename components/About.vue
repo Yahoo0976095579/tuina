@@ -177,6 +177,8 @@
 </template>
 
 <script setup>
+import { useScrollAnimation } from "~/composables/useScrollAnimation";
+
 const therapists = [
   {
     id: 1,
@@ -209,4 +211,9 @@ const therapists = [
     experience: "6年經驗",
   },
 ];
+
+onMounted(() => {
+  const { initAboutAnimations } = useScrollAnimation();
+  initAboutAnimations();
+});
 </script>

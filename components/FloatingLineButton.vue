@@ -19,15 +19,20 @@
 </template>
 
 <script setup>
+import { useScrollAnimation } from "~/composables/useScrollAnimation";
+
 const isPulsing = ref(true);
 
 const openLine = () => {
-  window.open("https://lin.ee/le3TvuH", "_blank");
+  window.open("https://line.me/R/ti/p/@your-line-id", "_blank");
 };
 
 onMounted(() => {
   setTimeout(() => {
     isPulsing.value = false;
   }, 5000);
+
+  const { initFloatingCircleAnimation } = useScrollAnimation();
+  initFloatingCircleAnimation();
 });
 </script>
