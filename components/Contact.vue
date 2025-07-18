@@ -97,6 +97,7 @@
                 </div>
                 <div class="mt-2">
                   <span
+                    v-if="isMounted"
                     class="text-xs px-2 py-1 rounded-full font-medium"
                     :class="
                       businessStatus.isOpen
@@ -106,7 +107,13 @@
                   >
                     {{ businessStatus.text }}
                   </span>
-                  <p class="text-xs text-gray-500 mt-1">
+                  <span
+                    v-else
+                    class="text-xs px-2 py-1 rounded-full font-medium bg-gray-100 text-gray-600"
+                  >
+                    載入中...
+                  </span>
+                  <p v-if="isMounted" class="text-xs text-gray-500 mt-1">
                     {{ businessStatus.nextChange }}
                   </p>
                 </div>
@@ -115,7 +122,7 @@
           </div>
         </div>
 
-        <!-- LINE聯絡方式 - 優化版本 -->
+        <!-- LINE聯絡方式 -->
         <div class="bg-green-50 rounded-lg p-6 md:p-8 text-center">
           <h3 class="text-lg md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">
             LINE 立即預約
@@ -124,7 +131,7 @@
             加入我們的LINE官方帳號，快速預約推拿服務
           </p>
 
-          <!-- 優化後的預約資訊 -->
+          <!-- 預約資訊 -->
           <div
             class="bg-white rounded-lg p-4 mb-4 md:mb-6 border-l-4 border-green-500"
           >
@@ -200,8 +207,17 @@
 </template>
 
 <script setup>
-// 營業時間邏輯保持不變
-const businessStatus = computed(() => {
+// 將營業狀態初始化移到客戶端，避免 Hydration Mismatch
+const businessStatus = ref({
+  isOpen: false,
+  text: "載入中...",
+  nextChange: "",
+});
+
+const isMounted = ref(false);
+
+// 營業時間計算函數
+const calculateBusinessStatus = () => {
   const now = new Date();
   const currentDay = now.getDay();
   const currentHour = now.getHours();
@@ -214,6 +230,7 @@ const businessStatus = computed(() => {
     nextChange = "";
 
   if (currentDay >= 1 && currentDay <= 5) {
+    // 週一至週五 09:30 - 22:30
     openTime = 9 * 60 + 30;
     closeTime = 22 * 60 + 30;
     isOpen = currentTime >= openTime && currentTime <= closeTime;
@@ -232,6 +249,7 @@ const businessStatus = computed(() => {
       nextChange = "明日 09:30 開始營業";
     }
   } else if (currentDay === 6) {
+    // 週六 14:30 - 22:30
     openTime = 14 * 60 + 30;
     closeTime = 22 * 60 + 30;
     isOpen = currentTime >= openTime && currentTime <= closeTime;
@@ -250,6 +268,7 @@ const businessStatus = computed(() => {
       nextChange = "明日 15:00 開始營業";
     }
   } else {
+    // 週日 15:00 - 22:00
     openTime = 15 * 60;
     closeTime = 22 * 60;
     isOpen = currentTime >= openTime && currentTime <= closeTime;
@@ -274,16 +293,41 @@ const businessStatus = computed(() => {
     text: isOpen ? "營業中" : "休息中",
     nextChange,
   };
-});
+};
 
 const openLine = () => {
-  window.open("https://lin.ee/le3TvuH", "_blank");
+  // 安全的瀏覽器 API 調用
+  if (process.client && typeof window !== "undefined") {
+    window.open("https://lin.ee/le3TvuH", "_blank");
 
-  if (typeof gtag !== "undefined") {
-    gtag("event", "line_contact_click", {
-      event_category: "contact",
-      event_label: "contact_section_button",
-    });
+    // Google Analytics 追蹤（如果有設定）
+    if (typeof gtag !== "undefined") {
+      gtag("event", "line_contact_click", {
+        event_category: "contact",
+        event_label: "contact_section_button",
+      });
+    }
   }
 };
+
+onMounted(async () => {
+  // 標記組件已掛載，避免 hydration 不一致
+  isMounted.value = true;
+
+  // 等待 DOM 更新完成
+  await nextTick();
+
+  // 客戶端掛載後再計算營業狀態
+  businessStatus.value = calculateBusinessStatus();
+
+  // 每分鐘更新一次營業狀態
+  const interval = setInterval(() => {
+    businessStatus.value = calculateBusinessStatus();
+  }, 60000); // 60秒更新一次
+
+  // 組件卸載時清理定時器
+  onBeforeUnmount(() => {
+    clearInterval(interval);
+  });
+});
 </script>
