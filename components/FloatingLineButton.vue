@@ -25,7 +25,7 @@ const isPulsing = ref(false);
 const openLine = () => {
   // 添加安全檢查
   if (process.client) {
-    window.open("https://line.me/R/ti/p/@your-line-id", "_blank");
+    window.open("https://lin.ee/le3TvuH", "_blank");
   }
 };
 
