@@ -1,7 +1,7 @@
 <template>
   <div>
     <FAQ />
-    <Contact />
+
     <!-- 
     <Hero />
     <Services />
