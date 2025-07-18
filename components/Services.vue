@@ -1,121 +1,112 @@
+<script setup>
+import { ref } from 'vue';
+
+// State for the image zoom modal
+const zoomedImageSrc = ref(null);
+
+const openZoom = (src) => {
+  zoomedImageSrc.value = src;
+};
+
+const closeZoom = () => {
+  zoomedImageSrc.value = null;
+};
+</script>
+
 <template>
-  <section id="services" class="py-8 md:py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2
-        class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-3 md:mb-4"
-      >
-        專業服務項目
-      </h2>
-      <p
-        class="text-center text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto text-sm md:text-base"
-      >
-        我們提供多種民俗調理傳統療法，針對不同需求提供專業服務
-      </p>
+  <div class="bg-gray-50">
+    <!-- Page Title -->
+    <div class="bg-gradient-to-br from-green-50 to-blue-50 py-8 md:py-12">
+      <div class="container mx-auto px-4">
+        <div class="text-center">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-2 md:mb-4">
+            服務項目與價目表
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
+            我們提供多樣化的專業推拿服務，價格透明。點擊下方價目表可放大圖片查閱。
+          </p>
+        </div>
+      </div>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        <div v-for="service in services" :key="service.id" class="service-card">
-          <div
-            class="bg-white rounded-lg shadow-md border-l-4 border-green-500 p-4 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-          >
-            <div class="flex justify-between items-start mb-3">
-              <div class="flex items-center">
-                <svg
-                  class="w-6 h-6 text-green-600 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path :d="service.icon" />
-                </svg>
-                <h3 class="text-lg md:text-xl font-bold text-gray-800">
-                  {{ service.name }}
-                </h3>
-              </div>
-              <span class="text-xl md:text-2xl font-bold text-green-600">{{
-                service.price
-              }}</span>
-            </div>
+    <!-- Image Price Lists Grid -->
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-3 gap-4 md:gap-8">
 
-            <p class="text-gray-600 mb-3 text-sm md:text-base leading-relaxed">
-              {{ service.description }}
-            </p>
-
-            <div class="flex justify-between items-center">
-              <span
-                class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full"
-              >
-                {{ service.duration }}
-              </span>
-              <div class="flex items-center text-green-600 text-sm">
-                <svg
-                  class="w-4 h-4 mr-1"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                專業服務
-              </div>
+        <!-- Card 1: Monthly Offers -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+          <h3 class="text-lg font-bold text-gray-800 text-center py-3 bg-gray-50">本月優惠</h3>
+          <div class="p-2 md:p-4">
+            <img 
+              src="/images/本月優惠.png" 
+              alt="本月推拿優惠方案" 
+              class="w-full h-auto rounded-md shadow-sm cursor-pointer transition-transform duration-300 group-hover:scale-105"
+              @click="openZoom('/images/本月優惠.png')"
+            >
+            <!-- SEO-friendly text, visually hidden -->
+            <div class="sr-only">
+              <h4>本月優惠</h4>
+              <ul>
+                <li>推拿+刮痧: 原價400元, 特價320元</li>
+                <li>推拿+拔罐: 原價350元, 特價280元</li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- 查看更多按鈕 - 跳轉到詳細頁面 -->
-      <div class="text-center mt-8">
-        <NuxtLink
-          to="/services"
-          class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full text-base font-semibold shadow-lg transition-all duration-300 hover:scale-105"
-        >
-          查看完整服務項目
-          <svg
-            class="w-5 h-5 ml-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
-        </NuxtLink>
+        <!-- Card 2: Main Price List -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+          <h3 class="text-lg font-bold text-gray-800 text-center py-3 bg-gray-50">價目表</h3>
+          <div class="p-2 md:p-4">
+            <img 
+              src="/images/價目表.jpg" 
+              alt="推拿服務價目表" 
+              class="w-full h-auto rounded-md shadow-sm cursor-pointer transition-transform duration-300 group-hover:scale-105"
+              @click="openZoom('/images/價目表.jpg')"
+            >
+            <!-- SEO-friendly text, visually hidden -->
+            <div class="sr-only">
+              <h4>價目表</h4>
+              <ul>
+                <li>推拿一次: 200元</li>
+                <li>推拿20分鐘: 300元</li>
+                <li>推拿30分鐘: 400元</li>
+                <li>推拿40分鐘: 520元</li>
+                <li>拔罐: 150元</li>
+                <li>刮痧: 200元</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Acupressure / Oil Massage -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+          <h3 class="text-lg font-bold text-gray-800 text-center py-3 bg-gray-50">指壓/油壓</h3>
+          <div class="p-2 md:p-4">
+            <img 
+              src="/images/指壓油壓.jpg" 
+              alt="指壓與油壓方案價格" 
+              class="w-full h-auto rounded-md shadow-sm cursor-pointer transition-transform duration-300 group-hover:scale-105"
+              @click="openZoom('/images/指壓油壓.jpg')"
+            >
+            <!-- SEO-friendly text, visually hidden -->
+            <div class="sr-only">
+              <h4>指壓油壓</h4>
+              <ul>
+                <li>指壓方案1小時: 850元</li>
+                <li>油壓方案1小時: 1000元</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </section>
-</template>
 
-<script setup>
-const services = [
-  {
-    id: 1,
-    name: "推拿",
-    description:
-      "運用民俗調理推拿手法，疏通經絡、活血化瘀，有效緩解肌肉疲勞和關節疼痛",
-    price: "NT$ 180",
-    duration: "10分鐘",
-    icon: "M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z",
-  },
-  {
-    id: 2,
-    name: "刮痧",
-    description:
-      "傳統民俗調理刮痧療法，透過特定手法刮拭皮膚，促進氣血循環，排除體內毒素",
-    price: "NT$ 180",
-    duration: "10分鐘",
-  },
-  {
-    id: 3,
-    name: "拔罐",
-    description:
-      "運用拔罐技術，通過負壓吸引改善局部血液循環，有效緩解疼痛和肌肉緊張",
-    price: "NT$ 150",
-    duration: "10分鐘",
-  },
-];
-</script>
+    <!-- Image Zoom Modal -->
+    <div v-if="zoomedImageSrc" @click="closeZoom" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4 transition-opacity duration-300">
+      <img :src="zoomedImageSrc" alt="放大的價目表" class="max-w-full max-h-full object-contain" @click.stop>
+      <button @click="closeZoom" class="absolute top-4 right-4 text-white text-3xl font-bold">&times;</button>
+    </div>
+  </div>
+</template>
