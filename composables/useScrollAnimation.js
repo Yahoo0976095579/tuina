@@ -1,13 +1,40 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 export const useScrollAnimation = () => {
-  if (process.client) {
-    gsap.registerPlugin(ScrollTrigger);
-  }
+  let gsap = null;
+  let ScrollTrigger = null;
 
-  const initHeroAnimations = () => {
-    if (process.client) {
+  // 初始化 GSAP 和 ScrollTrigger
+  const initGSAP = async () => {
+    if (!process.client) return;
+
+    try {
+      const { gsap: gsapModule } = await import("gsap");
+      const { ScrollTrigger: scrollTriggerModule } = await import(
+        "gsap/ScrollTrigger"
+      );
+
+      gsap = gsapModule;
+      ScrollTrigger = scrollTriggerModule;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 關閉警告（僅開發環境）
+      gsap.config({
+        nullTargetWarn: false,
+        trialWarn: false,
+      });
+    } catch (error) {
+      console.warn("GSAP 載入失敗:", error);
+    }
+  };
+
+  const initHeroAnimations = async () => {
+    if (!process.client) return;
+
+    await initGSAP();
+    if (!gsap) return;
+
+    const heroContent = document.querySelector(".hero-content");
+    if (heroContent) {
       gsap.fromTo(
         ".hero-content",
         {
@@ -25,8 +52,28 @@ export const useScrollAnimation = () => {
     }
   };
 
-  const initServicesAnimations = () => {
-    if (process.client) {
+  const initServicesAnimations = async () => {
+    if (!process.client) return;
+
+    await initGSAP();
+    if (!gsap) return;
+
+    // 等待 DOM 完全載入
+    await new Promise((resolve) => {
+      if (document.readyState === "complete") {
+        resolve();
+      } else {
+        window.addEventListener("load", resolve, { once: true });
+      }
+    });
+
+    // 額外等待確保元素已渲染
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
+    // 檢查元素是否存在
+    const serviceCards = document.querySelectorAll(".service-card");
+
+    if (serviceCards.length > 0) {
       gsap.fromTo(
         ".service-card",
         {
@@ -51,8 +98,16 @@ export const useScrollAnimation = () => {
     }
   };
 
-  const initAboutAnimations = () => {
-    if (process.client) {
+  const initAboutAnimations = async () => {
+    if (!process.client) return;
+
+    await initGSAP();
+    if (!gsap) return;
+
+    const aboutContent = document.querySelector(".about-content");
+    const aboutImage = document.querySelector(".about-image");
+
+    if (aboutContent) {
       gsap.fromTo(
         ".about-content",
         {
@@ -71,7 +126,9 @@ export const useScrollAnimation = () => {
           },
         }
       );
+    }
 
+    if (aboutImage) {
       gsap.fromTo(
         ".about-image",
         {
@@ -93,8 +150,27 @@ export const useScrollAnimation = () => {
     }
   };
 
-  const initFloatingCircleAnimation = () => {
-    if (process.client) {
+  const initFloatingCircleAnimation = async () => {
+    if (!process.client) return;
+
+    await initGSAP();
+    if (!gsap) return;
+
+    // 等待 DOM 完全載入
+    await new Promise((resolve) => {
+      if (document.readyState === "complete") {
+        resolve();
+      } else {
+        window.addEventListener("load", resolve, { once: true });
+      }
+    });
+
+    // 額外等待確保元素已渲染
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
+    const floatingCircles = document.querySelectorAll(".floating-circle");
+
+    if (floatingCircles.length > 0) {
       gsap.to(".floating-circle", {
         y: -20,
         duration: 3,

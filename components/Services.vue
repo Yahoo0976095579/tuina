@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from "vue";
-import { useScrollAnimation } from "~/composables/useScrollAnimation";
 
 // State for the image zoom modal
 const zoomedImageSrc = ref(null);
@@ -13,9 +12,25 @@ const closeZoom = () => {
   zoomedImageSrc.value = null;
 };
 
-onMounted(() => {
-  const { initServicesAnimations } = useScrollAnimation();
-  initServicesAnimations();
+onMounted(async () => {
+  // 確保在客戶端並且 DOM 完全載入後才執行
+  if (process.client) {
+    // 等待 DOM 穩定
+    await nextTick();
+
+    // 延遲載入動畫避免 hydration 衝突
+    setTimeout(async () => {
+      try {
+        const { useScrollAnimation } = await import(
+          "~/composables/useScrollAnimation"
+        );
+        const { initServicesAnimations } = useScrollAnimation();
+        await initServicesAnimations();
+      } catch (error) {
+        console.warn("Services 動畫載入失敗:", error);
+      }
+    }, 500);
+  }
 });
 </script>
 
@@ -43,8 +58,10 @@ onMounted(() => {
     <!-- Image Price Lists Grid -->
     <div class="container mx-auto px-4 py-8">
       <div class="grid grid-cols-3 gap-4 md:gap-8">
-        <!-- Card 1: Monthly Offers -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+        <!-- Card 1: Monthly Offers - 添加 service-card class -->
+        <div
+          class="service-card bg-white rounded-lg shadow-lg overflow-hidden group"
+        >
           <h3
             class="text-lg font-bold text-gray-800 text-center py-3 bg-gray-50"
           >
@@ -68,8 +85,10 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- Card 2: Main Price List -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+        <!-- Card 2: Main Price List - 添加 service-card class -->
+        <div
+          class="service-card bg-white rounded-lg shadow-lg overflow-hidden group"
+        >
           <h3
             class="text-lg font-bold text-gray-800 text-center py-3 bg-gray-50"
           >
@@ -97,8 +116,10 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- Card 3: Acupressure / Oil Massage -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+        <!-- Card 3: Acupressure / Oil Massage - 添加 service-card class -->
+        <div
+          class="service-card bg-white rounded-lg shadow-lg overflow-hidden group"
+        >
           <h3
             class="text-lg font-bold text-gray-800 text-center py-3 bg-gray-50"
           >
