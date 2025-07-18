@@ -16,7 +16,7 @@ const closeZoom = () => {
 <template>
   <div id="services" class="bg-gray-50">
     <!-- Page Title -->
-    <div class="bg-gradient-to-br from-green-50 to-blue-50 py-8 md:py-12">
+    <div class="bg-gradient-to-br bg-gray-100 to-blue-50 py-8 md:py-12">
       <div class="container mx-auto px-4">
         <div class="text-center">
           <h2
@@ -25,7 +25,10 @@ const closeZoom = () => {
             服務項目與價目表
           </h2>
           <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
-            我們提供多樣化的專業推拿服務，價格透明。點擊下方價目表可放大圖片查閱。
+            我們提供多樣化的專業推拿服務，價格透明。
+          </p>
+          <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
+            點擊下方價目表可放大圖片查閱。
           </p>
         </div>
       </div>

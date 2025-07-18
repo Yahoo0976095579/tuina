@@ -1,11 +1,11 @@
 <template>
   <div>
     <Hero />
-    <About />
     <Services />
-    <Benefits />
     <Process />
+    <Benefits />
     <Testimonials />
+    <About />
     <FAQ />
     <Contact />
     <FloatingLineButton />

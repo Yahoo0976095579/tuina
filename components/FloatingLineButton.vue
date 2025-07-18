@@ -22,7 +22,7 @@
 const isPulsing = ref(true);
 
 const openLine = () => {
-  window.open("https://line.me/R/ti/p/@your-line-id", "_blank");
+  window.open("https://lin.ee/le3TvuH", "_blank");
 };
 
 onMounted(() => {

@@ -311,7 +311,7 @@
     </nav>
 
     <!-- 主要內容 -->
-    <div class="pt-16">
+    <div class="pt-16 overflow-x-hidden">
       <NuxtPage />
     </div>
   </div>
