@@ -2,7 +2,7 @@
   <!-- 移除 h-screen，改用適應性高度 -->
   <section
     id="hero"
-    class="hero-section min-h-[60vh] md:min-h-[70vh] lg:min-h-[80vh] flex flex-col justify-center items-center bg-gradient-to-br from-green-50 to-blue-50 py-16 md:py-20"
+    class="hero-section min-h-[40vh] md:min-h-[70vh] lg:min-h-[80vh] flex flex-col justify-center items-center bg-gradient-to-br from-green-50 to-blue-50 py-8 md:py-20"
   >
     <div class="hero-content text-center px-4 z-10 max-w-4xl">
       <!-- 手機版標題字體調整 -->
