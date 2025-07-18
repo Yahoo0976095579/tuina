@@ -1,6 +1,7 @@
 <template>
   <div>
     <Hero />
+    <!--  
     <Services />
     <Process />
     <Benefits />
@@ -9,6 +10,7 @@
     <FAQ />
     <Contact />
     <ClientOnly> <FloatingLineButton /> </ClientOnly>
+    -->
   </div>
 </template>
 
