@@ -1,10 +1,10 @@
 <template>
   <div>
     <Hero />
-
+    <Process />
     <!-- 
     <Services />
-    <Process />
+    
     
     <Benefits />
     <Testimonials />
