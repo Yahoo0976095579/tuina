@@ -193,8 +193,6 @@
             </svg>
             加入LINE官方帳號
           </button>
-
-          <p class="text-xs md:text-sm text-gray-500">LINE ID: @your-line-id</p>
         </div>
       </div>
     </div>
