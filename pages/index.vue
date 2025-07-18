@@ -1,19 +1,14 @@
 <template>
   <div>
-    <Services />
-
-    <!-- 
     <Hero />
     <Services />
     <Process />
-    
     <Benefits />
     <Testimonials />
     <About />
     <FAQ />
     <Contact />
     <ClientOnly> <FloatingLineButton /> </ClientOnly>
-    -->
   </div>
 </template>
 
