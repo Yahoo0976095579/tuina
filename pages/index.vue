@@ -1,10 +1,12 @@
 <template>
   <div>
-    <Hero />
-    <Process />
+    <Benefits />
+    <Testimonials />
+    <About />
     <!-- 
+    <Hero />
     <Services />
-    
+    <Process />
     
     <Benefits />
     <Testimonials />
