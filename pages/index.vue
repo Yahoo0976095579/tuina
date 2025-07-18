@@ -1,6 +1,6 @@
 <template>
   <div>
-    <FAQ />
+    <ClientOnly> <FloatingLineButton /> </ClientOnly>
 
     <!-- 
     <Hero />
