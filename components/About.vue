@@ -198,18 +198,12 @@ const therapists = [
   },
   {
     id: 4,
-    name: "江宇豐",
-    title: "男推拿師",
-    experience: "8年經驗",
-  },
-  {
-    id: 5,
     name: "皇冠",
     title: "女推拿師",
     experience: "6年經驗",
   },
   {
-    id: 6,
+    id: 5,
     name: "曾士滕",
     title: "男推拿師",
     experience: "6年經驗",

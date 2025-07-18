@@ -199,21 +199,6 @@ const therapists = [
   },
   {
     id: 3,
-    name: "江宇豐",
-    title: "男推拿師",
-    experience: "店內3年經驗",
-    specialties: ["全身推拿", "經絡疏通"],
-    description:
-      "按捏輕重適宜，經絡準確，好溝通，平時喜歡研究各派推拿手法，喜歡嘗試不同推拿手法的首選。",
-    targetClients: [
-      "身體肌肉僵硬",
-      "需要女性推拿師",
-      "喜愛力道重",
-      "重視經絡平衡的客戶",
-    ],
-  },
-  {
-    id: 4,
     name: "施檸檬",
     title: "女推拿師",
     experience: "含有美容院專業經驗",
@@ -229,7 +214,7 @@ const therapists = [
     ],
   },
   {
-    id: 5,
+    id: 4,
     name: "皇冠",
     title: "女推拿師",
     experience: "推拿專業經驗",
@@ -238,7 +223,7 @@ const therapists = [
     targetClients: ["怕痛的客戶", "需要女推拿師", "中暑刮痧"],
   },
   {
-    id: 6,
+    id: 5,
     name: "曾士滕",
     title: "男推拿師",
     experience: "推拿專業經驗",
