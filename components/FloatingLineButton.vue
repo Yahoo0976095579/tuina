@@ -19,20 +19,34 @@
 </template>
 
 <script setup>
-import { useScrollAnimation } from "~/composables/useScrollAnimation";
-
-const isPulsing = ref(true);
+// 初始狀態在 SSR 和客戶端保持一致
+const isPulsing = ref(false);
 
 const openLine = () => {
-  window.open("https://line.me/R/ti/p/@your-line-id", "_blank");
+  // 添加安全檢查
+  if (process.client) {
+    window.open("https://line.me/R/ti/p/@your-line-id", "_blank");
+  }
 };
 
+// 僅在客戶端執行的邏輯
 onMounted(() => {
+  // 客戶端載入後才開始脈衝動畫
+  isPulsing.value = true;
+
+  // 5秒後停止脈衝
   setTimeout(() => {
     isPulsing.value = false;
   }, 5000);
 
-  const { initFloatingCircleAnimation } = useScrollAnimation();
-  initFloatingCircleAnimation();
+  // 動態導入 GSAP 相關功能
+  if (process.client) {
+    import("~/composables/useScrollAnimation").then(
+      ({ useScrollAnimation }) => {
+        const { initFloatingCircleAnimation } = useScrollAnimation();
+        initFloatingCircleAnimation();
+      }
+    );
+  }
 });
 </script>
