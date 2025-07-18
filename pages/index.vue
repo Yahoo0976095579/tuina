@@ -1,8 +1,7 @@
 <template>
   <div>
-    <Benefits />
-    <Testimonials />
-    <About />
+    <FAQ />
+    <Contact />
     <!-- 
     <Hero />
     <Services />
