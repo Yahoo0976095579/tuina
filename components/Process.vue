@@ -1,45 +1,35 @@
 <template>
-  <section id="process" class="py-8 md:py-16 bg-white">
+  <section id="process" class="py-16 bg-slate-50">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-6 md:mb-12">
-        <h2
-          class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-2 md:mb-4"
-        >
-          服務流程
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          調理流程
         </h2>
-        <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
-          專業貼心的服務流程，讓您享受最佳的推拿體驗
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          我們設計了簡單清晰的四個步驟，確保您能獲得最專業、最安心的調理體驗。
         </p>
       </div>
 
-      <!-- 手機版：2x2 網格，桌面版：1x4 網格 -->
-      <div class="max-w-4xl mx-auto">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+      <div class="relative max-w-4xl mx-auto">
+        <!-- Desktop connecting line -->
+        <div class="hidden md:block absolute top-8 left-0 w-full h-px bg-gray-300"></div>
+        
+        <div class="relative grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 md:gap-x-8">
           <div
             v-for="(step, index) in steps"
             :key="step.id"
-            class="text-center"
+            class="relative text-center"
           >
-            <div class="relative mb-3 md:mb-6">
-              <!-- 手機版縮小圓圈 -->
-              <div
-                class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-sm md:text-lg"
-              >
-                {{ index + 1 }}
-              </div>
-              <!-- 桌面版連接線 -->
-              <div
-                v-if="index < steps.length - 1"
-                class="hidden md:block absolute top-6 md:top-8 left-1/2 w-full h-0.5 bg-green-200 transform translate-x-6 md:translate-x-8"
-              ></div>
+            <!-- Step Circle -->
+            <div class="relative z-10 w-16 h-16 mx-auto bg-white border-4 border-green-600 rounded-full flex items-center justify-center text-green-600 font-bold text-2xl mb-4 shadow-lg">
+              {{ index + 1 }}
             </div>
-            <!-- 手機版縮小字體 -->
-            <h3
-              class="text-sm md:text-lg font-semibold text-gray-800 mb-1 md:mb-2"
-            >
+            
+            <!-- Step Content -->
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">
               {{ step.title }}
             </h3>
-            <p class="text-gray-600 text-xs md:text-sm leading-tight">
+            <p class="text-gray-600 text-sm">
               {{ step.description }}
             </p>
           </div>
@@ -54,22 +44,22 @@ const steps = [
   {
     id: 1,
     title: "LINE預約",
-    description: "聯絡我們，告知需求和時間",
+    description: "透過官方LINE聯絡我們，預約您的專屬時段。",
   },
   {
     id: 2,
     title: "身體評估",
-    description: "了解身體狀況和主要問題",
+    description: "調理前，推拿師會與您溝通，了解您的身體狀況。",
   },
   {
     id: 3,
-    title: "專業推拿",
-    description: "提供客製化推拿服務",
+    title: "專業調理",
+    description: "針對您的需求，提供客製化的推拿調理服務。",
   },
   {
     id: 4,
     title: "保健建議",
-    description: "給予日常保健和預約建議",
+    description: "調理後，給予您個人化的日常保健與放鬆建議。",
   },
 ];
 </script>

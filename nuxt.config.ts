@@ -1,7 +1,55 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-17",
 
-  modules: ["@nuxt/image", "@nuxtjs/tailwindcss", "@nuxtjs/sitemap"],
+  modules: [
+    "@nuxt/image",
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/sitemap",
+    "nuxt-schema-org",
+  ],
+
+  site: {
+    url: "https://yourentuina.vercel.app",
+    name: "友仁傳統整復中心",
+    description:
+      "友仁傳統整復中心提供專業推拿按摩服務，位於台中市太平區。肩頸推拿、全身推拿、刮痧、拔罐。經驗豐富師傅團隊，LINE預約更便利。",
+    defaultLocale: "zh-TW",
+  },
+
+  schemaOrg: {
+    identity: {
+      type: "LocalBusiness",
+      name: "友仁傳統整復中心",
+      url: "https://yourentuina.vercel.app",
+      telephone: "+886-4-2393-6663",
+      address: {
+        type: "PostalAddress",
+        streetAddress: "中山路二段91號",
+        addressLocality: "太平區",
+        addressRegion: "台中市",
+        postalCode: "411",
+        addressCountry: "TW",
+      },
+      // 將 openingHours 移到 identity 內
+      openingHours: [
+        {
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "09:30",
+          closes: "22:00",
+        },
+        {
+          dayOfWeek: "Saturday",
+          opens: "14:30",
+          closes: "22:00",
+        },
+        {
+          dayOfWeek: "Sunday",
+          opens: "15:00",
+          closes: "22:00",
+        },
+      ],
+    },
+  },
 
   // SEO 核心設定
   app: {
@@ -84,107 +132,18 @@ export default defineNuxtConfig({
           href: "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap",
         },
       ],
-
-      script: [
-        // JSON-LD 結構化資料
-        {
-          type: "application/ld+json",
-          innerHTML: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "@id": "https://yourentuina.vercel.app/#localbusiness",
-            name: "友仁推拿整復",
-            description:
-              "專業推拿服務，提供肩頸推拿、全身推拿、推拿整復、整骨、刮痧、拔罐、放鬆等服務",
-            url: "https://yourentuina.vercel.app/",
-            telephone: "+886-4-2393-6663",
-            email: "info@your-domain.com",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "中山路二段91號",
-              addressLocality: "台中市",
-              addressRegion: "太平區",
-              postalCode: "41160",
-              addressCountry: "TW",
-            },
-            geo: {
-              "@type": "GeoCoordinates",
-              latitude: "25.0478",
-              longitude: "121.5319",
-            },
-            openingHours: [
-              "Mo-Fr 09:30-22:30",
-              "Sa 14:30-22:30",
-              "Su 15:00-22:00",
-            ],
-            priceRange: "NT$150-NT$1000",
-            paymentAccepted: ["Cash", "Credit Card", "Bank Transfer"],
-            currenciesAccepted: "TWD",
-            image: ["https://your-domain.com/images/team-photo.jpg"],
-            logo: "https://yourentuina.vercel.app/images/logo.png",
-            sameAs: [
-              "https://www.facebook.com/p/%E5%8F%8B%E4%BB%81%E6%8E%A8%E6%8B%BF%E6%95%B4%E5%BE%A9%E4%B8%AD%E5%BF%83-100064760584268/",
-              "https://www.instagram.com/p0982818113/",
-              "https://line.me/R/ti/p/@your-line-id",
-            ],
-            hasOfferCatalog: {
-              "@type": "OfferCatalog",
-              name: "推拿按摩服務",
-              itemListElement: [
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "全身推拿",
-                    description: "全身經絡疏通，促進血液循環的推拿服務",
-                  },
-                  price: "180",
-                  priceCurrency: "TWD",
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "刮痧",
-                    description: "避免中暑，釋放濕氣",
-                  },
-                  price: "180",
-                  priceCurrency: "TWD",
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "拔罐",
-                    description: "放鬆肌肉，避免中暑，釋放濕氣",
-                  },
-                  price: "150",
-                  priceCurrency: "TWD",
-                },
-              ],
-            },
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "4.8",
-              reviewCount: "156",
-              bestRating: "5",
-              worstRating: "1",
-            },
-          }),
-        },
-      ],
     },
   },
 
   // 網站地圖設定 - 修正版本
   sitemap: {
-    sources: ["/", "/therapists", "/services"],
+    sources: ["/", "/therapists"],
   },
 
   // Nitro 設定 - 移除 router.options
   nitro: {
     prerender: {
-      routes: ["/", "/therapists", "/services"],
+      routes: ["/", "/therapists"],
     },
   },
 
