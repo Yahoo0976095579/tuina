@@ -99,7 +99,7 @@
             <img
               src="../assets/images/teams.png"
               alt="專業師傅團隊照片"
-              class="w-full h-48 md:h-64 bg-gray-200 rounded-lg object-contain"
+              class="w-full h-48 md:h-64 rounded-lg object-contain"
             />
           </div>
         </div>
