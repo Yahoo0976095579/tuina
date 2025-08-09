@@ -96,13 +96,11 @@
           </div>
 
           <div class="about-image order-first md:order-last">
-            <div
-              class="w-full h-48 md:h-64 bg-gray-200 rounded-lg flex items-center justify-center"
-            >
-              <span class="text-gray-500 text-sm md:text-base"
-                >專業師傅團隊照片</span
-              >
-            </div>
+            <img
+              src="../assets/images/teams.png"
+              alt="專業師傅團隊照片"
+              class="w-full h-48 md:h-64 bg-gray-200 rounded-lg object-cover"
+            />
           </div>
         </div>
 
