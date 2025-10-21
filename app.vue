@@ -313,11 +313,13 @@
     <!-- 主要內容 -->
     <div class="pt-16 overflow-x-hidden">
       <NuxtPage />
+      <Analytics />
     </div>
   </div>
 </template>
 
 <script setup>
+import { Analytics } from "@vercel/analytics/nuxt";
 const showMobileMenu = ref(false);
 const currentSection = ref("hero");
 
