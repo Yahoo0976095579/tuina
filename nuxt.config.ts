@@ -92,7 +92,10 @@ export default defineNuxtConfig({
 
         // Twitter Cards
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "專業推拿服務 | 舒緩疲勞重拾活力" },
+        {
+          name: "twitter:title",
+          content: "專業推拿服務123 | 舒緩疲勞重拾活力",
+        },
         {
           name: "twitter:description",
           content:
