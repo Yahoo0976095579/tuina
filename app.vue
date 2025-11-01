@@ -1,5 +1,12 @@
 <template>
   <div>
+    <Head>
+      <Title>友仁傳統整復中心 - 台中專業推拿按摩服務</Title>
+      <Meta
+        name="description"
+        content="友仁傳統整復中心提供專業推拿按摩服務，位於台中市太平區。肩頸推拿、全身推拿、刮痧、拔罐。經驗豐富師傅團隊，LINE預約更便利。"
+      />
+    </Head>
     <!-- 導航選單 -->
     <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
       <div class="container mx-auto px-4">

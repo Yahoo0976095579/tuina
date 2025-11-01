@@ -76,7 +76,7 @@ export default defineNuxtConfig({
         { name: "googlebot", content: "index, follow" },
 
         // Open Graph 標籤
-        { property: "og:title", content: "友仁傳統推拿 | 舒緩疲勞重拾活力" },
+        { property: "og:title", content: "專業推拿服務 | 舒緩疲勞重拾活力" },
         {
           property: "og:description",
           content:
@@ -94,7 +94,7 @@ export default defineNuxtConfig({
         { name: "twitter:card", content: "summary_large_image" },
         {
           name: "twitter:title",
-          content: "專業推拿服務123 | 舒緩疲勞重拾活力",
+          content: "專業推拿服務 | 舒緩疲勞重拾活力",
         },
         {
           name: "twitter:description",
