@@ -398,7 +398,7 @@ onBeforeUnmount(() => {
 
 // 頁面 meta 設定
 useHead({
-  titleTemplate: "%s | 專業推拿服務",
+  titleTemplate: "%s | 友仁傳統推拿",
   meta: [{ name: "viewport", content: "width=device-width, initial-scale=1" }],
 });
 </script>
